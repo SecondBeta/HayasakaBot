@@ -79,7 +79,7 @@ client.distube
 			embeds: [
 				new Discord.MessageEmbed()
 					.setColor('#DD989B')
-					.setTitle(`${client.emotes.success} | Added ${song.name} to the queue - Duration: \`${song.formattedDuration}\``),
+					.setTitle(`${client.emotes.success} | Added ${song.name} to the queue - Duration: \`${song.formattedDuration}\`\n${status(queue)}`),
 			],
 		},
 		),
