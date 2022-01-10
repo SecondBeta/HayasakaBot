@@ -1,6 +1,5 @@
 {
     "prefix": ".",
-    "token": "`${process.env.BOT_TOKEN}`",
     "emoji": {
         "play": "▶️",
         "stop": "⏹️",

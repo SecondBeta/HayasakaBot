@@ -108,4 +108,4 @@ client.distube
 	),
 	);
 
-client.login(config.token);
+client.login(`${process.env.BOT_TOKEN}`);
