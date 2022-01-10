@@ -34,7 +34,7 @@ module.exports = {
 			.setColor('#DD989B')
 			.addField('Definition ', definition)
 			.addField('Example: ', example)
-			.setFooter(`👍: ${thumbsUp} | 👎: ${thumbsDown}`);
+			.addField(`👍: ${thumbsUp} | 👎: ${thumbsDown}`);
 
 		return message.channel.send(embed);
 	},
