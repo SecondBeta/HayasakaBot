@@ -15,7 +15,7 @@ module.exports = {
 		if (fetch.length === 0) {
 			return message.channel.send(`${client.emotes.error} | No results found for **${query}**.`);
 		}
-		const data = fetch[0];
+		const [data] = fetch[0];
 
 		const embed = new discord.MessageEmbed()
 			.setColor('#EFFF00')
