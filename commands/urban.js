@@ -31,10 +31,10 @@ module.exports = {
 		const embed = new discord.MessageEmbed()
 			.setTitle(title)
 			.setURL(permalink)
+			.setDescription('Definition: ', definition)
+			.setDescription('Example: ', example)
 			.setColor('#DD989B')
-			.addField('Definition ', definition)
-			.addField('Example: ', example)
-			.addField(`👍: ${thumbsUp} | 👎: ${thumbsDown}`);
+			.setFooter({ text: `👍: ${thumbsUp} | 👎: ${thumbsDown}`, iconURL: 'https://th.bing.com/th/id/OIP.vUVYShzId3cwgBrxhl9eeAHaHa?pid=ImgDet&rs=1' });
 
 		return message.channel.send(embed);
 	},
