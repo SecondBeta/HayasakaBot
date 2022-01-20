@@ -1,3 +1,4 @@
-<h1 class="text-align-center">Akari</h1>
-<p class="text-align-center">A Multipurpose Discord Bot</p>
-
+<div align="center">
+  <h1>Akari</h1>
+  <p>A Multipurpose Discord Bot</p>
+</div>
