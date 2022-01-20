@@ -1,9 +1,9 @@
 <div align="center">
   <h1>Akari</h1>
-  <p>A Multipurpose Discord Bot</p>
+  <p>⚡ A Multipurpose Discord Bot</p>
 </div>
 
-## Play Music from YouTube and SoundCloud 🎶
+## 🎶 Play Music from YouTube and SoundCloud
 Features:
 - Autoplay (plays similar songs)
 - Volume
