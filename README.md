@@ -12,3 +12,9 @@ Features:
 
 ## Too many API's
 - Urban Dictionary (`.urban hello world`)
+
+## Other Features
+- ⭐ Starboard system
+
+**And many more to come!**
+*please leave suggestions/improvments in the issues tab*
