@@ -23,8 +23,6 @@
     "distube": "^3.0.5",
     "ffmpeg-static": "^4.4.1",
     "libsodium-wrappers": "^0.7.9",
-    "node-fetch": "^3.1.0",
-    "querystring": "^0.2.1",
     "ytdl-core": "^4.9.2",
     "ytpl": "^2.2.3",
     "ytsr": "^3.5.3"
