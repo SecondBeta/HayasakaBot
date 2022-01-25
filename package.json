@@ -18,6 +18,7 @@
     "@discordjs/rest": "^0.2.0-canary.0",
     "@discordjs/voice": "^0.7.5",
     "@distube/soundcloud": "^1.0.0",
+    "axios": "^0.25.0",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.5.0",
     "distube": "^3.0.5",
