@@ -1,31 +1,26 @@
-const discord = require('discord.js');
-const axios = require('axios');
+const { MessageEmbed } = require('discord.js');
+const querystring = require('querystring');
+const fetch = require('node-fetch');
 
 module.exports = {
 	name: 'urban',
-	run: async (client, message, args) => {
-		const query = args.join(' ');
-		if (!query) {
-			return message.channel.send(`${client.emotes.error} | Please provide a query`);
-		}
-		const link = 'https://api.urbandictionary.com/v0/define?';
-		let fetch = await axios(link + encodeURI(query));
-		fetch = fetch.data.list;
+	aliases: ['ud'],
+	description: 'Get a definition of a word with Urban Dictionary',
+	run: async (client, message, args, Discord) => {
+		if (!args.length) return message.reply({ content: 'No Query Given' });
 
-		if (fetch.length === 0) {
-			return message.channel.send(`${client.emotes.error} | No results found for **${query}**.`);
-		}
-		const [data] = fetch[0];
+		const query = querystring.stringify({ term:args.join(' ') });
 
-		const embed = new discord.MessageEmbed()
-			.setColor('#EFFF00')
-			.setTitle(data.word)
-			.setURL(data.permalink)
-			.addFields(
-				{ name: 'Definition', value: (data.definition) },
-				{ name: 'Example', value: (data.example) },
-				{ name: 'Rating', value: `${data.thumbs_up} thumbs up. ${data.thumbs_down} thumbs down.` },
-			);
+		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+
+		if (!list.length) return message.channel.send(`No definition was found for **"${args.join(' ')}"**`);
+
+		const embed = new Discord.MessageEmbed()
+			.setTitle('Urban Dictionary')
+			.setColor('#DD989B')
+			.setDescription(`**Definition:**\n${list[0].definition}`)
+			.setTimestamp();
+
 		message.channel.send({ embeds: [embed] });
 	},
 };
