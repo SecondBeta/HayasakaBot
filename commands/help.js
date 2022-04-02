@@ -20,7 +20,6 @@ module.exports = {
 						{ name: '.repeat', value: '.repeat bruh sound effect #2', inline: true },
 						{ name: '.volume', value: 'between 1-100%', inline: true },
 						{ name: '.leave', value: 'Out!', inline: true },
-						{ name: '.sauce', value: 'paste a screenshot and find that sauce!', inline: true },
 					)
 					.setColor('#DD989B'),
 			],
