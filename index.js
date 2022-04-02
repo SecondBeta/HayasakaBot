@@ -108,14 +108,4 @@ client.distube
 	),
 	);
 
-const sauce = require('./commands/sauce');
-client.on('message', async (msg) => {
-	if (msg.content == 'find' && msg.attachments.first().attachment) {
-		const result = await sauce({
-			imageUrl: msg.attachments.first().attachment,
-		});
-		msg.reply(result);
-	}
-});
-
 client.login(`${process.env.BOT_TOKEN}`);
