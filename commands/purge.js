@@ -19,6 +19,7 @@ module.exports = {
 					new Discord.MessageEmbed()
 						.setTitle(`Purged ${purgeCount} messages!`)
 						.setImage('https://cdn.discordapp.com/attachments/929954012097310731/963989793660895262/693990042485522432.gif')
+						.setColor(config.embedColour)
 				]}).then((msg) => {
 					msg.react(`${client.emotes.success}`);
 				});
