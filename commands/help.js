@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 
-client.config = require('../config.json');
-
 module.exports = {
 	name: 'help',
 	aliases: ['h', 'cmd', 'command'],
 	run: async (client, message) => {
+		client.config = require('../config.json');
 		message.channel.send({
 			embeds: [
 				new Discord.MessageEmbed()
