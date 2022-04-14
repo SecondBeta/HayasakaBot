@@ -21,9 +21,6 @@ module.exports = {
 						.setImage('https://cdn.discordapp.com/attachments/929954012097310731/963989793660895262/693990042485522432.gif')
 				]}).then((msg) => {
 					msg.react(`${client.emotes.success}`);
-					setTimeout(() => {
-						msg.delete();
-					}, 5000);
 				});
 		}
 	},
