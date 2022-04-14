@@ -1,4 +1,7 @@
 const Discord = require('discord.js');
+const config = require('./config.json');
+
+client.config = require('./config.json');
 
 module.exports = {
 	name: 'help',
@@ -8,8 +11,9 @@ module.exports = {
 			embeds: [
 				new Discord.MessageEmbed()
 					.setTitle('All Commands')
-					.setImage('https://cdn.discordapp.com/emojis/796645689890701343.gif?size=128J&quality=lossless')
+					.setImage('https://cdn.discordapp.com/emojis/777578958715093022.gif')
 					.addFields(
+						{ name: '.purge', value: 'ayo those msg\'s were kinda sus ngl (.purge 100)', inline: true },
 						{ name: '.play', value: 'eg: (.play rick roll)', inline: true },
 						{ name: '.stop', value: 'Kill the music!', inline: true },
 						{ name: '.queue', value: 'View your playlist', inline: true },
@@ -21,7 +25,7 @@ module.exports = {
 						{ name: '.volume', value: 'between 1-100%', inline: true },
 						{ name: '.leave', value: 'Out!', inline: true },
 					)
-					.setColor('#DD989B'),
+					.setColor(config.embedColour),
 			],
 		});
 	},

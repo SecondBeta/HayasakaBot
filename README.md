@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Hayasaka</h1>
+  <h1>Hayasaka Bot</h1>
   <p>⚡ A Multipurpose Discord Bot</p>
 </div>
 

@@ -67,7 +67,7 @@ client.distube
 		queue.textChannel.send({
 			embeds: [
 				new Discord.MessageEmbed()
-					.setColor('#DD989B')
+					.setColor(config.embedColour)
 					.setTitle(`${client.emotes.play} | **Now Playing:** ${song.name} - Duration: \`${song.formattedDuration}\``)
 					.setImage(`${song.thumbnail}`),
 			],
@@ -78,7 +78,7 @@ client.distube
 		queue.textChannel.send({
 			embeds: [
 				new Discord.MessageEmbed()
-					.setColor('#DD989B')
+					.setColor(config.embedColour)
 					.setTitle(`${client.emotes.success} | Added ${song.name} to the queue - Duration: \`${song.formattedDuration}\`\n${status(queue)}`),
 			],
 		},
@@ -101,7 +101,7 @@ client.distube
 	.on('finish', queue => queue.textChannel.send({
 		embeds: [
 			new Discord.MessageEmbed()
-				.setColor('#DD989B')
+				.setColor(config.embedColour)
 				.setTitle(`${client.emotes.queue} Queue is now empty!`),
 		],
 	},
