@@ -10,11 +10,10 @@ module.exports = {
         if (message.author.id !== config.devID)
         return; 
         try {
-            const evaled = eval(args.join(" "));
-            const cleaned = await clean(evaled);
-            await message.channel.send(`\`\`\`js\n${cleaned}\n\`\`\``);
+            const evaled = eval(args.join(' '));
+            await message.channel.send(`\`\`\`js\n${evaled}\n\`\`\``);
         } catch (err) {
-            message.channel.send(`\`ERROR\` \`\`\`xl\n${cleaned}\n\`\`\``);
+            message.channel.send(`\`ERROR\` \`\`\`xl\n${evaled}\n\`\`\``);
         }
     }
 }
