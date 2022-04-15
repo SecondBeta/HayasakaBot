@@ -7,7 +7,9 @@ module.exports = {
     name: 'eval',
     run: async (client, message, args) => {
         client.config = require('../config.json');
-        if (message.author.id !== config.devID) return
+        if (!args[0]) {
+            return message.channel.send(`${client.emotes.error} | Please put code to evaluate in code blocks: \`\`\`\ `)
+        }
         const embed = new MessageEmbed()
             .setTitle('Evaluating...')
         const msg = await message.channel.send(embed)
@@ -16,6 +18,7 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Eval Command')
                 .setDescription(await data)
+                .setColor(config.embedColour)
             await msg.edit(embed);
             await msg.react('✅')
             await msg.react('❌')
@@ -36,7 +39,8 @@ module.exports = {
 
         } catch (error) {
             const embed = new MessageEmbed()
-                .setTitle('An Error occured');
+                .setTitle('An Error occured')
+                .setColor('#ff0000');
             console.error(error);
             return await msg.edit(embed);
         }
