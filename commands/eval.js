@@ -10,7 +10,7 @@ module.exports = {
             const data = eval(args.join(' ').replace(/```/g, ''))
             const embed = new MessageEmbed()
                 .setTitle('Eval Command')
-                .setDescription(await data)
+                .setDescription(await `${data}`)
             await msg.edit(embed);
             await msg.react('✅')
             await msg.react('❌')
@@ -31,7 +31,7 @@ module.exports = {
 
         } catch (error) {
             const embed = new MessageEmbed()
-                .setTitle('An Error occured');
+                .setTitle('An Error occurred');
             console.error(error);
             return await msg.edit(embed);
         }
