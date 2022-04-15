@@ -12,6 +12,7 @@ module.exports = {
         }
         const embed = new MessageEmbed()
             .setTitle('Evaluating...')
+            .setColor(config.embedColour)
         const msg = await message.channel.send({ embeds: [embed] });
         try {
             const data = eval(args.join(' ').replace(/```/g, ''))
