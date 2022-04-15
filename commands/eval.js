@@ -4,6 +4,9 @@ module.exports = {
     name: 'eval',
     run: async (client, message, args) => {
         client.config = require('../config.json');
+        if (!args) {
+            return message.channel.send(`${client.emotes.error} | Please provide code to evaluate`);
+        }
         if (message.author.id !== config.devID)
         return; 
         try {
