@@ -40,7 +40,7 @@ module.exports = {
         } catch (error) {
             const embed = new MessageEmbed()
                 .setTitle('An Error Occurred')
-                .setDescription(` \`\`\`\ ${error} \`\`\`\ `)
+                .setDescription(error)
                 .setColor('#ff0000');
             console.error(error);
             return await msg.edit(embed);
