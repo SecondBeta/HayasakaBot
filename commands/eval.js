@@ -11,7 +11,7 @@ module.exports = {
         if (message.author.id !== config.devID)
         return; 
         try {
-            const evaled = eval(code.join(' ').replace(/```/g, ''))
+            const evaled = await eval(code.join(' ').replace(/```/g, ''))
             await message.channel.send(`\`\`\`js\n${evaled}\n\`\`\``);
         } catch (err) {
             message.channel.send(`\`ERROR\` \`\`\`xl\n${evaled}\n\`\`\``);
