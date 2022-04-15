@@ -1,39 +1,19 @@
-const { MessageEmbed } = require('discord.js');
+const config = require('../config.json');
 
 module.exports = {
     name: 'eval',
     run: async (client, message, args) => {
-        const embed = new MessageEmbed()
-            .setTitle('Evaluating...')
-        const msg = await message.channel.send(embed)
-        try {
-            const data = eval(args.join(' ').replace(/```/g, ''))
-            const embed = new MessageEmbed()
-                .setTitle('Eval Command')
-                .setDescription(await `${data}`)
-            await msg.edit(embed);
-            await msg.react('✅')
-            await msg.react('❌')
-            const filter = (reaction, user) => (reaction.emoji.name === '❌' || reaction.emoji.name === '✅') && (user.id === message.author.id)
-            msg.awaitReactions(filter, { max: 1 })
-                .then((collected) => {
-                    collected.map((emojis) => {
-                        switch (emojis._emoji.name) {
-                            case '✅':
-                                msg.reactions.removeAll()
-                                break;
-                            case '❌':
-                                msg.delete()
-                                break;
-                        }
-                    })
-                })
+        client.config = require('../config.json');
+    const args = message.content.split(" ").slice(1);
+      if (message.author.id !== `${process.env.devID}`)
+        return;
+      try {
+        const evaled = eval(args.join(" "));
+        const cleaned = await clean(evaled);
+        message.channel.send(`\`\`\`js\n${cleaned}\n\`\`\``);
 
-        } catch (error) {
-            const embed = new MessageEmbed()
-                .setTitle('An Error occurred');
-            console.error(error);
-            return await msg.edit(embed);
-        }
+      } catch (err) {
+        message.channel.send(`\`ERROR\` \`\`\`xl\n${cleaned}\n\`\`\``);
+      }
     }
 }
