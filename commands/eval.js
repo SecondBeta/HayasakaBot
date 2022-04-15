@@ -12,7 +12,7 @@ module.exports = {
         try {
             const evaled = eval(args.join(" "));
             const cleaned = await clean(evaled);
-            message.channel.send(`\`\`\`js\n${cleaned}\n\`\`\``);
+            await message.channel.send(`\`\`\`js\n${cleaned}\n\`\`\``);
         } catch (err) {
             message.channel.send(`\`ERROR\` \`\`\`xl\n${cleaned}\n\`\`\``);
         }
