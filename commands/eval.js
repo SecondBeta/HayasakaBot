@@ -18,7 +18,7 @@ module.exports = {
             const data = eval(args.join(' ').replace(/```/g, ''))
             const embed = await new MessageEmbed()
                 .setTitle('Evaluated Code')
-                .setDescription(data)
+                .setDescription(`${data}`)
                 .setColor(config.embedColour)
             await msg.edit(embed);
             await msg.react('✅')
