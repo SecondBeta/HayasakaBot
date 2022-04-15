@@ -12,7 +12,7 @@ module.exports = {
         }
         try {
             const data = eval(args.join(' ').replace(/```/g, ''))
-            const embed = new MessageEmbed()
+            const embed = await new MessageEmbed()
                 .setTitle('Evaluated Code')
                 .setDescription(await `${data}`)
                 .setColor(config.embedColour)
