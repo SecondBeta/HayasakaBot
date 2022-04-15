@@ -16,9 +16,9 @@ module.exports = {
         const msg = await message.channel.send({ embeds: [embed] });
         try {
             const data = eval(args.join(' ').replace(/```/g, ''))
-            const embed = new MessageEmbed()
-                .setTitle('Eval Command')
-                .setDescription(await data)
+            const embed = await new MessageEmbed()
+                .setTitle('Evaluated Code')
+                .setDescription(data)
                 .setColor(config.embedColour)
             await msg.edit(embed);
             await msg.react('✅')
@@ -41,7 +41,6 @@ module.exports = {
         } catch (error) {
             const embed = new MessageEmbed()
                 .setTitle('An Error Occurred')
-                .setDescription(error)
                 .setColor('#ff0000');
             console.error(error);
             return await msg.edit(embed);
