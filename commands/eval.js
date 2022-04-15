@@ -4,7 +4,6 @@ module.exports = {
     name: 'eval',
     run: async (client, message, args) => {
         client.config = require('../config.json');
-        const args = message.content.split(" ").slice(1);
         if (message.author.id !== config.devID)
         return; 
         try {
