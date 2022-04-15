@@ -8,11 +8,11 @@ module.exports = {
     run: async (client, message, args) => {
         client.config = require('../config.json');
         if (!args[0]) {
-            return message.channel.send(`${client.emotes.error} | Please put code to evaluate in code blocks: \`\`\`\ `)
+            return message.channel.send(`${client.emotes.error} | Please put code to evaluate in code blocks: \`\`\`\ console.log('hello there') \`\`\`\ `)
         }
         const embed = new MessageEmbed()
             .setTitle('Evaluating...')
-        const msg = await message.channel.send(embed)
+        const msg = await message.channel.send({ embeds: [embed] });
         try {
             const data = eval(args.join(' ').replace(/```/g, ''))
             const embed = new MessageEmbed()
@@ -39,7 +39,8 @@ module.exports = {
 
         } catch (error) {
             const embed = new MessageEmbed()
-                .setTitle('An Error occured')
+                .setTitle('An Error Occurred')
+                .setDescription(` \`\`\`\ ${error} \`\`\`\ `)
                 .setColor('#ff0000');
             console.error(error);
             return await msg.edit(embed);
