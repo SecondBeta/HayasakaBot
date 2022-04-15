@@ -16,9 +16,9 @@ module.exports = {
         const msg = await message.channel.send({ embeds: [embed] });
         try {
             const data = eval(args.join(' ').replace(/```/g, ''))
-            const embed = await new MessageEmbed()
+            const embed = new MessageEmbed()
                 .setTitle('Evaluated Code')
-                .setDescription(`${data}`)
+                .setDescription(await `${data}`)
                 .setColor(config.embedColour)
             await msg.edit(embed);
             await msg.react('✅')
